@@ -22,8 +22,8 @@ import mindustry.world.meta.*;
 import static mindustry.Vars.*;
 
 public class Conveyor extends Block implements Autotiler{
-    private static final float itemSpace = 0.4f;
-    private static final int capacity = 4;
+    private static final float itemSpace = 0.2f;
+    private static final int capacity = 8;
 
     final Vec2 tr1 = new Vec2();
     final Vec2 tr2 = new Vec2();
