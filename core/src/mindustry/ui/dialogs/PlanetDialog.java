@@ -759,7 +759,21 @@ public class PlanetDialog extends BaseDialog implements PlanetInterfaceRenderer{
                 }
 
                 if(shouldHide) hide();
-            }).growX().height(54f).minWidth(170f).padTop(4);
+            }).growX().height(54f).minWidth(170f).padTop(4).row();
+
+
+            if(sector.hasBase()) {
+                stable.button("Уничьтожыть", Styles.transt, () -> {
+
+                    Events.fire(new EventType.SectorLoseEvent(sector));
+                    //if so, just delete the save for now. it's lost.
+                    //TODO don't delete it later maybe
+                    sector.save.delete();
+                    //clear recieved
+                    sector.save = null;
+                }).growX().padTop(2f).height(50f).minWidth(170f).disabled(b -> state.rules.sector == sector && !state.isMenu());
+            }
+
         }
 
         stable.pack();

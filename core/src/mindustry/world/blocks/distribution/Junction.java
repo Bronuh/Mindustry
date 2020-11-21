@@ -10,7 +10,7 @@ import mindustry.world.meta.*;
 import static mindustry.Vars.*;
 
 public class Junction extends Block{
-    public float speed = 26; //frames taken to go through this junction
+    public float speed = 1; //frames taken to go through this junction
     public int capacity = 6;
 
     public Junction(String name){

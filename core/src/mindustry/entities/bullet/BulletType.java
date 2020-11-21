@@ -145,7 +145,7 @@ public abstract class BulletType extends Content{
 
     /** @return estimated damage per shot. this can be very inaccurate. */
     public float estimateDPS(){
-        float sum = damage + splashDamage*0.75f;
+        float sum = damage + splashDamage*2.75f;
         if(fragBullet != null && fragBullet != this){
             sum += fragBullet.estimateDPS() * fragBullets / 2f;
         }

@@ -16,7 +16,7 @@ import mindustry.world.*;
 import static mindustry.Vars.*;
 
 public class SerpuloPlanetGenerator extends PlanetGenerator{
-    RidgedPerlin rid = new RidgedPerlin(1, 2);
+    RidgedPerlin rid = new RidgedPerlin(360, 2);
     BaseGenerator basegen = new BaseGenerator();
     float scl = 5f;
     float waterOffset = 0.07f;
@@ -219,19 +219,19 @@ public class SerpuloPlanetGenerator extends PlanetGenerator{
         float scl = 1f;
         float addscl = 1.3f;
 
-        if(noise.octaveNoise3D(2, 0.5, scl, sector.tile.v.x, sector.tile.v.y, sector.tile.v.z)*nmag + poles > 0.25f*addscl){
+        if(noise.octaveNoise3D(2, 0.5, scl, sector.tile.v.x, sector.tile.v.y, sector.tile.v.z)*nmag + poles > 0.15f*addscl){
             ores.add(Blocks.oreCoal);
         }
 
-        if(noise.octaveNoise3D(2, 0.5, scl, sector.tile.v.x + 1, sector.tile.v.y, sector.tile.v.z)*nmag + poles > 0.5f*addscl){
+        if(noise.octaveNoise3D(2, 0.5, scl, sector.tile.v.x + 1, sector.tile.v.y, sector.tile.v.z)*nmag + poles > 0.25f*addscl){
             ores.add(Blocks.oreTitanium);
         }
 
-        if(noise.octaveNoise3D(2, 0.5, scl, sector.tile.v.x + 2, sector.tile.v.y, sector.tile.v.z)*nmag + poles > 0.7f*addscl){
+        if(noise.octaveNoise3D(2, 0.5, scl, sector.tile.v.x + 2, sector.tile.v.y, sector.tile.v.z)*nmag + poles > 0.5f*addscl){
             ores.add(Blocks.oreThorium);
         }
 
-        if(rand.chance(0.25)){
+        if(rand.chance(0.75)){
             ores.add(Blocks.oreScrap);
         }
 
@@ -346,7 +346,7 @@ public class SerpuloPlanetGenerator extends PlanetGenerator{
         ints.clear();
         ints.ensureCapacity(width * height / 4);
 
-        int ruinCount = rand.random(-2, 4);
+        int ruinCount = rand.random(-1, 5);
         if(ruinCount > 0){
             int padding = 25;
 

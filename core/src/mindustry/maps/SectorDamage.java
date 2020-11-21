@@ -61,7 +61,7 @@ public class SectorDamage{
 
             for(int i = waveBegin; i <= waveEnd; i++){
 
-                float efficiency = health / info.sumHealth;
+                float efficiency = 1;
                 float dps = info.sumDps * efficiency;
                 float rps = info.sumRps * efficiency;
 
@@ -111,7 +111,7 @@ public class SectorDamage{
         float damage = getDamage(state.rules.sector.info);
 
         //scaled damage has a power component to make it seem a little more realistic (as systems fail, enemy capturing gets easier and easier)
-        float scaled = Mathf.pow(damage, 1.6f);
+        float scaled = Mathf.pow(damage, 1f);
 
         //apply damage to units
         float unitDamage = damage * state.rules.sector.info.sumHealth;

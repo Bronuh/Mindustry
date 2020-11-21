@@ -68,7 +68,7 @@ public class Vars implements Loadable{
     /** list of built-in servers.*/
     public static final Seq<ServerGroup> defaultServers = Seq.with();
     /** maximum distance between mine and core that supports automatic transferring */
-    public static final float mineTransferRange = 220f;
+    public static final float mineTransferRange = 320f;
     /** max chat message length */
     public static final int maxTextLength = 150;
     /** max player name length in bytes */
@@ -78,9 +78,9 @@ public class Vars implements Loadable{
     /** units outside of this bound will die instantly */
     public static final float finalWorldBounds = 500;
     /** mining range for manual miners */
-    public static final float miningRange = 70f;
+    public static final float miningRange = 120f;
     /** range for building */
-    public static final float buildingRange = 220f;
+    public static final float buildingRange = 320f;
     /** range for moving items */
     public static final float itemTransferRange = 220f;
     /** range for moving items for logic units */
@@ -88,9 +88,9 @@ public class Vars implements Loadable{
     /** duration of time between turns in ticks */
     public static final float turnDuration = 2 * Time.toMinutes;
     /** chance of an invasion per turn, 1 = 100% */
-    public static final float baseInvasionChance = 1f / 30f;
+    public static final float baseInvasionChance = 1f / 130f;
     /** how many turns have to pass before invasions start */
-    public static final int invasionGracePeriod = 20;
+    public static final int invasionGracePeriod = 120;
     /** min armor fraction damage; e.g. 0.05 = at least 5% damage */
     public static final float minArmorDamage = 0.1f;
     /** launch animation duration */
