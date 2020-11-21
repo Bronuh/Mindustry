@@ -207,7 +207,7 @@ public class CoreBlock extends StorageBlock{
             return false;
         }
 
-        @Override
+        /*@Override
         public void onDestroyed(){
             super.onDestroyed();
 
@@ -220,7 +220,7 @@ public class CoreBlock extends StorageBlock{
                     spawner.getSpawns().add(tile);
                 }
             }
-        }
+        }*/
 
         @Override
         public void drawLight(){
