@@ -1713,34 +1713,69 @@ public class UnitTypes implements ContentList{
             isCounted = false;
 
             flying = true;
-            mineSpeed = 6.5f;
-            mineTier = 1;
-            buildSpeed = 0.5f;
+            mineSpeed = 300f;
+            mineTier = 4;
+            buildSpeed = 5f;
             drag = 0.05f;
-            speed = 3f;
-            rotateSpeed = 15f;
+            speed = 6f;
+            rotateSpeed = 30f;
             accel = 0.1f;
-            itemCapacity = 30;
-            health = 150f;
+            itemCapacity = 3000;
+            health = 500f;
             engineOffset = 6f;
             hitSize = 8f;
             commandLimit = 3;
-            alwaysUnlocked = true;
 
             weapons.add(new Weapon("small-basic-weapon"){{
-                reload = 17f;
+                reload = 12f;
                 x = 2.75f;
                 y = 1f;
                 top = false;
-                ejectEffect = Fx.casing1;
+                shots = 20;
+                inaccuracy = 6f;
+                velocityRnd = 0.3f;
+                shootSound = Sounds.shootBig;
 
-                bullet = new BasicBulletType(2.5f, 10){{
+                bullet = new BasicBulletType(25f, 15){{
                     width = 7f;
                     height = 9f;
-                    lifetime = 60f;
-                    shootEffect = Fx.shootSmall;
+                    lifetime = 30f;
+                    shootEffect = Fx.shootBig;
                     smokeEffect = Fx.shootSmallSmoke;
-                    tileDamageMultiplier = 0.02f;
+                    tileDamageMultiplier = 1f;
+                }};
+            }});
+
+            weapons.add(new Weapon("small-rocket-launcher"){{
+                reload = 2f;
+                x = 2.75f;
+                y = 1f;
+                top = false;
+                shots = 2;
+                inaccuracy = 16f;
+                velocityRnd = 0.3f;
+                shootSound = Sounds.missile;
+
+                bullet = new MissileBulletType(8f, 60){{
+                    width = 8f;
+                    height = 8f;
+                    shrinkY = 0f;
+                    drag = -0.01f;
+                    splashDamageRadius = 75f;
+                    splashDamage = 55f;
+                    ammoMultiplier = 4f;
+                    homingPower = 0.25f;
+                    homingRange = 150f;
+                    hitEffect = Fx.blastExplosion;
+                    despawnEffect = Fx.blastExplosion;
+                    lifetime = 240f;
+                    tileDamageMultiplier = 1.5f;
+                    lightning = 3;
+                    lightningLength = 15;
+                    lightningDamage = 35;
+
+                    status = StatusEffects.slow;
+                    statusDuration = 60f;
                 }};
             }});
         }};
@@ -1750,39 +1785,69 @@ public class UnitTypes implements ContentList{
             isCounted = false;
 
             flying = true;
-            mineSpeed = 7f;
-            mineTier = 1;
-            buildSpeed = 0.75f;
+            mineSpeed = 500f;
+            mineTier = 4;
+            buildSpeed = 6.5f;
             drag = 0.05f;
-            speed = 3.3f;
-            rotateSpeed = 17f;
+            speed = 7.5f;
+            rotateSpeed = 40f;
             accel = 0.1f;
-            itemCapacity = 50;
-            health = 170f;
+            itemCapacity = 5000;
+            health = 1500f;
             engineOffset = 6f;
             hitSize = 9f;
             rotateShooting = false;
             lowAltitude = true;
-            commandLimit = 4;
+            commandLimit = 5;
 
-            weapons.add(new Weapon("small-mount-weapon"){{
-                top = false;
-                reload = 20f;
-                x = 3f;
-                y = 0.5f;
+            weapons.add(new Weapon("small-basic-weapon"){{
                 rotate = true;
-                shots = 2;
-                shotDelay = 4f;
-                spacing = 0f;
-                ejectEffect = Fx.casing1;
+                reload = 17f;
+                x = 2.75f;
+                y = 1f;
+                top = false;
+                shots = 20;
+                inaccuracy = 4.5f;
+                velocityRnd = 0.3f;
+                shootSound = Sounds.shootBig;
 
-                bullet = new BasicBulletType(3f, 10){{
-                    width = 7f;
-                    height = 9f;
-                    lifetime = 60f;
-                    shootEffect = Fx.shootSmall;
-                    smokeEffect = Fx.shootSmallSmoke;
-                    tileDamageMultiplier = 0.02f;
+                bullet = new ShrapnelBulletType(){{
+                    length = 800;
+                    damage = 250f;
+                }};
+            }});
+
+            weapons.add(new Weapon("small-rocket-launcher"){{
+                rotate = true;
+                reload = 2f;
+                x = 2.75f;
+                y = 1f;
+                top = false;
+                shots = 2;
+                inaccuracy = 16f;
+                velocityRnd = 0.3f;
+                shootSound = Sounds.missile;
+
+
+                bullet = new MissileBulletType(7f, 30){{
+                    width = 8f;
+                    height = 8f;
+                    shrinkY = 0f;
+                    drag = -0.01f;
+                    splashDamageRadius = 50f;
+                    splashDamage = 25f;
+                    ammoMultiplier = 4f;
+                    homingPower = 0.25f;
+                    homingRange = 150f;
+                    hitEffect = Fx.blastExplosion;
+                    despawnEffect = Fx.blastExplosion;
+                    lifetime = 240f;
+                    tileDamageMultiplier = 1.5f;
+                    lightning = 3;
+                    lightningLength = 10;
+
+                    status = StatusEffects.slow;
+                    statusDuration = 60f;
                 }};
             }});
         }};
@@ -1792,38 +1857,83 @@ public class UnitTypes implements ContentList{
             isCounted = false;
 
             flying = true;
-            mineSpeed = 8f;
-            mineTier = 2;
-            buildSpeed = 1f;
+            mineSpeed = 700f;
+            mineTier = 4;
+            buildSpeed = 8f;
             drag = 0.05f;
-            speed = 3.55f;
-            rotateSpeed = 19f;
+            speed = 9f;
+            rotateSpeed = 40f;
             accel = 0.11f;
-            itemCapacity = 70;
-            health = 220f;
+            itemCapacity = 7000;
+            health = 3000f;
             engineOffset = 6f;
-            hitSize = 11f;
-            commandLimit = 5;
+            hitSize = 10f;
+            commandLimit = 7;
 
-            weapons.add(new Weapon("small-mount-weapon"){{
+            weapons.add(new Weapon("nuclear-rocket-launcher"){{
                 top = false;
-                reload = 15f;
+                reload = 20f;
                 x = 1f;
                 y = 2f;
-                shots = 2;
+                shots = 1;
                 spacing = 2f;
-                inaccuracy = 3f;
+                inaccuracy = 1f;
                 shotDelay = 3f;
-                ejectEffect = Fx.casing1;
+                shootSound = Sounds.flame;
 
-                bullet = new BasicBulletType(3.5f, 10){{
-                    width = 6.5f;
-                    height = 11f;
-                    lifetime = 70f;
-                    shootEffect = Fx.shootSmall;
-                    smokeEffect = Fx.shootSmallSmoke;
-                    tileDamageMultiplier = 0.02f;
-                    homingPower = 0.04f;
+                bullet = new MissileBulletType(7f, 300){{
+                    width = 20f;
+                    height = 20f;
+                    shrinkY = 0f;
+                    drag = -0.01f;
+                    splashDamageRadius = 150f;
+                    splashDamage = 250f;
+                    ammoMultiplier = 4f;
+                    homingPower = 0.15f;
+                    homingRange = 350f;
+                    hitEffect = Fx.impactShockwave;
+                    despawnEffect = Fx.impactShockwave;
+                    lifetime = 240f;
+                    tileDamageMultiplier = 1.5f;
+                    lightning = 8;
+                    lightningLength = 20;
+
+                    status = StatusEffects.burning;
+                    statusDuration = 160f;
+                }};
+            }});
+
+            weapons.add(new Weapon("tiny-rocket-launcher"){{
+                rotate = true;
+                reload = 2f;
+                x = 2.75f;
+                y = 1f;
+                top = false;
+                shots = 4;
+                inaccuracy = 20f;
+                velocityRnd = 0.4f;
+                shootSound = Sounds.missile;
+
+
+                bullet = new MissileBulletType(10f, 15){{
+                    width = 4f;
+                    height = 4f;
+                    shrinkY = 0f;
+                    drag = -0.01f;
+                    splashDamageRadius = 50f;
+                    splashDamage = 13f;
+                    ammoMultiplier = 4f;
+                    homingPower = 0.25f;
+                    homingRange = 150f;
+                    hitEffect = Fx.blastExplosion;
+                    despawnEffect = Fx.blastExplosion;
+                    lifetime = 150f;
+                    tileDamageMultiplier = 1.5f;
+                    lightning = 3;
+                    lightningLength = 10;
+
+                    status = StatusEffects.slow;
+                    statusDuration = 60f;
                 }};
             }});
         }};
