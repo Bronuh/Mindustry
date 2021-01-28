@@ -115,7 +115,7 @@ public class CoreBlock extends StorageBlock{
         CoreBuild core = team.core();
         //must have all requirements
         if(core == null || (!state.rules.infiniteResources && !core.items.has(requirements))) return false;
-        return tile.block() instanceof CoreBlock && size > tile.block().size;
+        return size > tile.block().size;
     }
 
     @Override
